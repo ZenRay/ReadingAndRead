@@ -35,3 +35,19 @@ def euclideanPower(x:tuple, y:tuple)->float:
     """
     distance = euclidean(tuple(x), tuple(y))
     return 1 / (1 + distance)
+
+
+@nb.njit
+def dot(x, y):
+    """
+    计算点积
+    """
+    if len(x) != len(y):
+        raise ValueError("x and y are differente size")
+
+    result = 0
+    for x_i, y_i in zip(x, y):
+        result += x_i * y_i
+    
+    return result
+
